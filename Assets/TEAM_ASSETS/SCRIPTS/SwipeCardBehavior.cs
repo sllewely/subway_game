@@ -22,23 +22,29 @@ public class SwipeCardBehavior : MonoBehaviour {
             Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
 
             // Move object across XY plane
-            Vector3 newPos = transform.position - new Vector3(touchDeltaPosition.x * speed, 0, touchDeltaPosition.y * speed);
-            if (pointOkay(newPos))
+            Vector3 translation = new Vector3(-touchDeltaPosition.x * speed, 0, -touchDeltaPosition.y * speed);
+            if (moveOkay(translation))
             {
-                transform.position = newPos;
+                transform.Translate(translation);
             }
         }
 
     }
 
-    private bool pointOkay(Vector3 point)
+    private bool moveOkay(Vector3 translation)
     {
-        Vector3 offsetPoint = point - Vector3.up;
-        if (leftSlider.GetComponent<Collider>().bounds.Contains(offsetPoint) || rightSlider.GetComponent<Collider>().bounds.Contains(offsetPoint))
+        Mesh mesh = GetComponent<MeshFilter>().mesh;
+        Vector3[] vertices = mesh.vertices;
+        foreach(Vector3 vertex in vertices)
         {
-            // Debug.Log("Inside left slider " + point);
-            return false;
+            Vector3 futurePoint = vertex + translation;
+            if (leftSlider.GetComponent<Collider>().bounds.Contains(futurePoint) || rightSlider.GetComponent<Collider>().bounds.Contains(futurePoint))
+            {
+                Debug.Log("Inside " + vertex + " and " + translation);
+               // return false;
+            }
         }
+
         return true;
     }
 }
