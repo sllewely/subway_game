@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 80277317}
   - component: {fileID: 80277321}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,7 +146,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fafd5453f2ccaef40845ed4767f7c8a8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -209,7 +209,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25101bd06a5026748932452da1f8bd39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 0.02
+  leftSlider: {fileID: 2037163696}
+  rightSlider: {fileID: 2045799246}
 --- !u!1 &306044471
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,7 +749,7 @@ GameObject:
   - component: {fileID: 2037163699}
   - component: {fileID: 2037163698}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: LeftSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -780,7 +782,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d623493a0ad0356429b87c00084779da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -831,7 +833,7 @@ GameObject:
   - component: {fileID: 2045799249}
   - component: {fileID: 2045799248}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: RightSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
