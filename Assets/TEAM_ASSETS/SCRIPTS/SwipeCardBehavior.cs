@@ -33,18 +33,38 @@ public class SwipeCardBehavior : MonoBehaviour {
 
     private bool moveOkay(Vector3 translation)
     {
-        Mesh mesh = GetComponent<MeshFilter>().mesh;
-        Vector3[] vertices = mesh.vertices;
-        foreach(Vector3 vertex in vertices)
+        /***
+        return bottomBounds(transform.position).Exists(vertex =>
+         {
+             Vector3 futurePoint = vertex + translation;
+             return leftSlider.GetComponent<Collider>().bounds.Contains(futurePoint) || rightSlider.GetComponent<Collider>().bounds.Contains(futurePoint);
+         }); ***/
+        foreach(Vector3 vertex in bottomBounds(transform.position + translation))
         {
-            Vector3 futurePoint = vertex + translation;
-            if (leftSlider.GetComponent<Collider>().bounds.Contains(futurePoint) || rightSlider.GetComponent<Collider>().bounds.Contains(futurePoint))
+            Debug.Log("vertex is " + vertex);
+            if (leftSlider.GetComponent<Collider>().bounds.Contains(vertex))
             {
-                Debug.Log("Inside " + vertex + " and " + translation);
-               // return false;
+                Debug.Log("inside left");
+                return false;
+            }
+            if (rightSlider.GetComponent<Collider>().bounds.Contains(vertex))
+            {
+                Debug.Log("inside right");
+                return false;
             }
         }
-
         return true;
+    }
+
+    // Get all lower vertices of the metro card
+    // TODO: remove hardcoded values
+    private List<Vector3> bottomBounds(Vector3 futurePoint)
+    {
+        var bounds = new List<Vector3>();
+        bounds.Add(futurePoint + new Vector3(-0.02f, -0.5f, -1.2f));
+        bounds.Add(futurePoint + new Vector3(-0.02f, -0.5f, 1.2f));
+        bounds.Add(futurePoint + new Vector3(0.02f, -0.5f, -1.2f));
+        bounds.Add(futurePoint + new Vector3(0.02f, -0.5f, 1.2f));
+        return bounds;
     }
 }
