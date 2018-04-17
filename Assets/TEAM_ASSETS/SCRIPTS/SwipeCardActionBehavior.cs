@@ -4,21 +4,40 @@ using UnityEngine;
 
 public class SwipeCardActionBehavior : MonoBehaviour {
 
+    public int targetSpeed;
+    public int speedForgiveness;
+    private List<float> speeds = new List<float>();
+    private bool isSwiping = false;
+    public GameObject collidingCard;
+    private Vector3 lastPosition;
+
+    public int avgSpeed;
+    public int stdDev;
+
+
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        if (isSwiping)
+        {
+            var xDelta = collidingCard.transform.position.x - lastPosition.x;
+            speeds.Add(xDelta);
+        }
 		
 	}
 
     public void OnTriggerEnter(Collider other)
     {
         Debug.Log("enter " + other.name);
+        speeds = new List<float>();
+        lastPosition = collidingCard.transform.position;
+        isSwiping = true;
     }
 
+    // idk maybe this works and I can use instead of isSwiping in update?
     public void OnTriggerStay(Collider other)
     {
         Debug.Log("stay " + other.name);
@@ -28,5 +47,6 @@ public class SwipeCardActionBehavior : MonoBehaviour {
     public void OnTriggerExit(Collider other)
     {
         Debug.Log("exit " + other.name);
+        isSwiping = false;
     }
 }

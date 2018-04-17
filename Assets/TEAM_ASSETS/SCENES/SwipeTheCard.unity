@@ -1073,6 +1073,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b4a94e1bb61fe4f86448404ea8d892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetSpeed: 0
+  speedForgiveness: 0
+  collidingCard: {fileID: 80277316}
+  avgSpeed: 0
+  stdDev: 0
 --- !u!1 &1953648337
 GameObject:
   m_ObjectHideFlags: 0
