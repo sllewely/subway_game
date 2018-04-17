@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class SwipeCardActionBehavior : MonoBehaviour {
 
@@ -23,7 +24,7 @@ public class SwipeCardActionBehavior : MonoBehaviour {
 	void Update () {
         if (isSwiping)
         {
-            var xDelta = collidingCard.transform.position.x - lastPosition.x;
+            var xDelta = (collidingCard.transform.position.x - lastPosition.x) / Time.deltaTime;
             speeds.Add(xDelta);
         }
 		
@@ -48,5 +49,13 @@ public class SwipeCardActionBehavior : MonoBehaviour {
     {
         Debug.Log("exit " + other.name);
         isSwiping = false;
+        CalculateAvg();
+    }
+
+    private float CalculateAvg()
+    {
+        var avg = speeds.ToArray().Aggregate((a, b) => a + b) / (float)speeds.Count;
+        Debug.Log("avg speed is " + avg);
+        return avg;
     }
 }
