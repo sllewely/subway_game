@@ -1,34 +1,35 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
-public class SwipeCardActionBehavior : MonoBehaviour {
+public class SwipeCardActionBehavior : MonoBehaviour
+{
+
+    private List<float> speeds = new List<float>();
+    private bool isSwiping = false;
+    private Vector3 lastPosition;
 
     public int targetSpeed;
     public int speedForgiveness;
-    private List<float> speeds = new List<float>();
-    private bool isSwiping = false;
     public GameObject collidingCard;
-    private Vector3 lastPosition;
-
     public int avgSpeed;
     public int stdDev;
 
+    // Use this for initialization
+    void Start()
+    {
+    }
 
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update()
+    {
         if (isSwiping)
         {
             var xDelta = (collidingCard.transform.position.x - lastPosition.x) / Time.deltaTime;
             speeds.Add(xDelta);
         }
-		
-	}
+
+    }
 
     public void OnTriggerEnter(Collider other)
     {
@@ -54,7 +55,8 @@ public class SwipeCardActionBehavior : MonoBehaviour {
 
     private float CalculateAvg()
     {
-        var avg = speeds.ToArray().Aggregate((a, b) => a + b) / (float)speeds.Count;
+        //var avg = speeds.ToArray().Aggregate((a, b) => a + b) / (float)speeds.Count;
+        var avg = speeds.Average();
         Debug.Log("avg speed is " + avg);
         return avg;
     }
