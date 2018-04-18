@@ -14,6 +14,7 @@ public class SwipeCardActionBehavior : MonoBehaviour
     public GameObject collidingCard;
     public int avgSpeed;
     public int stdDev;
+    public SwipeCardMessageBehavior swipeCardMessageBehavior;
 
     // Use this for initialization
     private void Start()
@@ -37,6 +38,7 @@ public class SwipeCardActionBehavior : MonoBehaviour
         speeds = new List<float>();
         lastPosition = collidingCard.transform.position;
         isSwiping = true;
+        swipeCardMessageBehavior.HideMessage();
     }
 
     // idk maybe this works and I can use instead of isSwiping in update?
@@ -51,6 +53,7 @@ public class SwipeCardActionBehavior : MonoBehaviour
         Debug.Log("exit " + other.name);
         isSwiping = false;
         CalculateAvg();
+        swipeCardMessageBehavior.ShowMessage();
     }
 
     private float CalculateAvg()
