@@ -9,7 +9,11 @@ public class ExitGameButtonBehavior : MonoBehaviour {
 
     void Start()
     {
+        
+        Debug.Log("SARAH!!!!");
         Button btn = yourButton.GetComponent<Button>();
+        
+        Debug.Log("button found: " + btn.name);
         btn.onClick.AddListener(TaskOnClick);
     }
 

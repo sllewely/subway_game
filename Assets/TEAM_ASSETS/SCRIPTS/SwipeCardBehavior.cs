@@ -23,11 +23,8 @@ public class SwipeCardBehavior : MonoBehaviour
             Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
 
             // Move object across XY plane
-            Vector3 translation = new Vector3(-touchDeltaPosition.x * speed, 0, -touchDeltaPosition.y * speed);
-            if (IsMoveOkay(translation))
-            {
-                transform.Translate(translation);
-            }
+            Vector3 translation = new Vector3(touchDeltaPosition.y * speed, -touchDeltaPosition.x * speed, 0);
+            transform.Translate(translation);
         }
 
     }
@@ -35,6 +32,7 @@ public class SwipeCardBehavior : MonoBehaviour
     // Stop card from passing through sliders
     private bool IsMoveOkay(Vector3 translation)
     {
+//        return true;
         var bottomBounds = BottomBounds(transform.position + translation);
         var leftBounds = leftSlider.GetComponent<Collider>().bounds;
         var rightBounds = rightSlider.GetComponent<Collider>().bounds;
