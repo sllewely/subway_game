@@ -16,6 +16,7 @@
             </e>
             <e p="SwipeMessage.cs" t="Include" />
             <e p="TouchManager.cs" t="Include" />
+            <e p="TouchMovement.cs" t="Include" />
           </e>
         </e>
         <e p="TextMesh Pro" t="Include">
