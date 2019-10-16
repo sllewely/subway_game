@@ -8,6 +8,7 @@
       <e p="Assets" t="Include">
         <e p="TEAM_ASSETS" t="Include">
           <e p="SCRIPTS" t="Include">
+            <e p="DetectSwipe.cs" t="Include" />
             <e p="old" t="Include">
               <e p="ExitGameButtonBehavior.cs" t="Include" />
               <e p="SwipeCardActionBehavior.cs" t="Include" />

@@ -16,7 +16,7 @@ public class TouchMovement : MonoBehaviour
 //            float speedRatio = speed * touch.deltaTime;
             Vector3 push = new Vector3(-touch.deltaPosition.x * speed, 0,  -touch.deltaPosition.y * speed);
             
-            debugger.text = gameObject.transform.position.ToString();
+//            debugger.text = gameObject.transform.position.ToString();
             gameObject.GetComponent<Rigidbody>().AddForce(push);
         }
 

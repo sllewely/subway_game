@@ -23,10 +23,10 @@ public class SwipeMessage : MonoBehaviour
     void Start()
     {
         text = gameObject.GetComponent<TMP_Text>();
-        StartCoroutine(ShowMessage());
+//        StartCoroutine(ShowMessageLoop());
     }
 
-    IEnumerator ShowMessage()
+    IEnumerator ShowMessageLoop()
     {
         for (;;)
         {
@@ -35,6 +35,18 @@ public class SwipeMessage : MonoBehaviour
             yield return new WaitForSeconds(2);
             text.text = "";
         }
+    }
+
+    public void ShowSwipeMessage()
+    {
+        StartCoroutine(ShowMessage());
+    }
+
+    IEnumerator ShowMessage()
+    {
+        text.text = messages[random.Next(1, messages.Count)];
+        yield return new WaitForSeconds(2);
+        text.text = "";
     }
 
     // Update is called once per frame
