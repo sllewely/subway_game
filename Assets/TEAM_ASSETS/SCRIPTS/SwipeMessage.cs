@@ -11,7 +11,7 @@ public class SwipeMessage : MonoBehaviour
     private List<string> messages = new List<string>
     {
         "SWIPE CARD AGAIN AT THIS TURNSTILE",
-        "GO",
+//        "GO",
         "TOO FAST",
         "TOO SLOW",
         "INSUFFICIENT FARE"
