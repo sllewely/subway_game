@@ -15,6 +15,7 @@
               <e p="SwipeCardBehavior.cs" t="Include" />
               <e p="SwipeCardMessageBehavior.cs" t="Include" />
             </e>
+            <e p="PersistData.cs" t="Include" />
             <e p="SceneBehavior.cs" t="Include" />
             <e p="SwipeMessage.cs" t="Include" />
             <e p="TouchManager.cs" t="Include" />
