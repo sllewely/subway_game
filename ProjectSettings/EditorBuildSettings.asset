@@ -4,4 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/TEAM_ASSETS/SCENES/SwipeTheCard.unity
+    guid: e0e9803fc12f90d478261372c0f2d1cb
+  - enabled: 1
+    path: Assets/TEAM_ASSETS/SCENES/SwipeTheCard2.unity
+    guid: b1962c3f8b9cbb74aa99dfd16b70aa7e
+  m_configObjects: {}
